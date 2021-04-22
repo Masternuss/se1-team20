@@ -1,4 +1,7 @@
-public interface StringSortIF {
+package Aufgabe2;
 
-    void isWellSorted();
+public interface StringSortIF {
+	
+	boolean isWellSorted(String[]sequence);
+
 }
