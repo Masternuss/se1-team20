@@ -7,47 +7,78 @@ import static org.junit.jupiter.api.Assertions.*;
 
 class StringSortIFTest {
 
-    StringSortIF s = new StringSortImpl(new String[][]{{"A","C"},{"C","D"},{"B","C"}});
-    StringSortIF s1 = new StringSortImpl(new String[][]{{"A","B"},{"B","C"}});
-    String[] arr1 = {"A","B","C","D"};
-    String[] arr2 = {"D","C","B","A"};
-    String[] arr3 = {"B","A","C","D"};
-    String[] arr4 = {"C","A"};
+    StringSortIF depend1;
+    StringSortIF depend2;
+    String[] arr1;
+    String[] arr2;
+    String[] arr3;
+    String[] arr4;
 
     @BeforeEach
     void setUp() {
-        s = new StringSortImpl(new String[][]{{"A","C"},{"C","D"},{"B","C"}});
-        s1 = new StringSortImpl(new String[][]{{"A","B"},{"B","C"}});
+        depend1 = new StringSortImpl(new String[][]{{"A","C"},{"C","D"},{"B","C"}});
+        depend2 = new StringSortImpl(new String[][]{{"A","B"},{"B","C"}});
         arr1 = new String[]{"A", "B", "C", "D"};
         arr2 = new String[]{"D", "C", "B", "A"};
         arr3 = new String[]{"B", "A", "C", "D"};
+        arr4 = new String[]{"C", "A"};
     }
 
     @Test
-    @DisplayName("Test if Sequence {A,B,C,D} is correct")
+    @DisplayName("Test if sequence {A,B,C,D} is correct in dependencies depend1.")
     void isWellSortedTest1() {
-        assertTrue(s.isWellSorted(arr1));
+        assertTrue(depend1.isWellSorted(arr1));
     }
 
     @Test
-    @DisplayName("Test if Sequence {D, C, B, A} is false")
+    @DisplayName("Test if sequence {D, C, B, A} is false in dependencies depend1.")
     void isWellSortedTest2() {
-        assertFalse(s.isWellSorted(arr2));
+        assertFalse(depend1.isWellSorted(arr2));
     }
 
     @Test
-    @DisplayName("Test if Sequence {B, A, C, D} is True")
+    @DisplayName("Test if sequence {B, A, C, D} is true in dependencies depend1.")
     void isWellSortedTest3() {
-        assertTrue(s.isWellSorted(arr3));
+
+        assertTrue(depend1.isWellSorted(arr3));
+    }
+
+
+    @Test
+    @DisplayName("Test if sequence {C,A} is false in dependencies depend2")
+    void isWellSortedTest4()
+    {
+        assertFalse(depend2.isWellSorted(arr4));
     }
 
     @Test
-    @DisplayName("Test if Sequence {C,A} is False")
-    void isWellSortedTest4() {
-        assertFalse(s1.isWellSorted(arr4));
+    @DisplayName("Test if function throws InvalidArgumentException with extra strings.")
+    void isWellSortedIAExceptionStringNotIncludedTest()
+    {
+        assertThrows(IllegalArgumentException.class, () -> depend1.isWellSorted(new String[]{"A","F"}));
+    }
+
+    @Test
+    @DisplayName("Test if function throws InvalidArgumentException with multiple same strings.")
+    void isWellSortedIAExceptionSameStringTest()
+    {
+        assertThrows(IllegalArgumentException.class, () -> depend1.isWellSorted(new String[]{"A","A","B"}));
+    }
+
+    @Test
+    @DisplayName("Test if function is transitive")
+    void isWellSortedTransitiveTest()
+    {
+        assertFalse(depend1.isWellSorted(new String[] {"A","C","B"}));
     }
 
     @AfterEach
     void tearDown() {
+        depend1 = null;
+        depend2 = null;
+        arr1 = null;
+        arr2 = null;
+        arr3 = null;
+        arr4 = null;
     }
 }

@@ -1,3 +1,7 @@
+import java.util.Arrays;
+import java.util.HashSet;
+import java.util.Set;
+
 public class StringSortImpl implements StringSortIF {
 
     String[][] dependencies = null;
@@ -11,7 +15,19 @@ public class StringSortImpl implements StringSortIF {
         //Result Array to compare two hierarchies
         int[] res = new int[2];
 
-        //int[] MengeDerAbhängigkeiten = new int[]
+        // Create Set for unique Strings
+        Set<String> setofsequence = new HashSet<String>(Arrays.asList(sequence));
+        // Same Strings are not valid as Arguments
+        if (sequence.length != setofsequence.size()) throw new IllegalArgumentException();
+
+        Set<String> setofdependencies = new HashSet<String>();
+
+        for (int i=0; i<dependencies.length; i++) {
+            setofdependencies.add(dependencies[i][0]);
+            setofdependencies.add(dependencies[i][1]);
+        }
+        // Use of "retainAll" -> if Elements are not in specified Colleciton: remove = true
+        if ((setofsequence.retainAll(setofdependencies))) throw new IllegalArgumentException();
 
         //For Loop to get Single Arrays
         for (int i=0; i<dependencies.length; i++) {
@@ -26,4 +42,5 @@ public class StringSortImpl implements StringSortIF {
 
         return true;
     }
+
 }
