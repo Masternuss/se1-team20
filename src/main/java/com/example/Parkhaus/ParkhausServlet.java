@@ -162,7 +162,6 @@ public class ParkhausServlet extends HttpServlet {
     }
 
     final public void destroy(){/*do nothing*/}
-    //fooofooofooo
 
 }
 
