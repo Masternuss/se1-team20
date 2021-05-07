@@ -1,8 +1,7 @@
 package com.example.Parkhaus;
 
 import java.io.*;
-import javax.servlet.ServletContext;
-import javax.servlet.ServletException;
+import javax.servlet.*;
 import javax.servlet.http.*;
 import javax.servlet.annotation.*;
 
