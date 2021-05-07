@@ -22,3 +22,10 @@
 #### Funktion getAvg() -> return Double
 #### Button name: get_avg -> Anzeige: Average
 
+### 6. getTotalCars() - get_total_cars
+#### Funktion getTotalCars() -> return Integer
+#### Button name: get_total_cars -> Anzeige: Total Cars
+
+### 7. getRemainingParkingSpots() - get_remaining_parking_spots
+#### Funktion getRemainingParkingSpots() -> return Integer
+#### Button name: get_remaining_parking_spots -> Anzeige: Free Spots ("Remaining")
