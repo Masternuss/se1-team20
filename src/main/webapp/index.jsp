@@ -5,7 +5,7 @@
 
 <br>
 <h1>Tomcat Parkhaus 9.1.9</h1>
-<br/>
+<br>
 
 <script src='https://ccmjs.github.io/mkaul-components/parkhaus/versions/ccm.parkhaus-9.1.9.js'>
 

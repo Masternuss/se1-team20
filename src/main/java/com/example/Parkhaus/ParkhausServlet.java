@@ -72,7 +72,7 @@ public class ParkhausServlet extends HttpServlet {
         Long totalCars =            getTotalCars();
 
         StringBuilder priceString = new StringBuilder();
-        Double price  = 0.;
+        Double price  =             0.;
 
         //when a car leaves the parkhaus the following will happen
         if ("leave".equals(event)){
