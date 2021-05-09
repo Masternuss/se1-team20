@@ -23,7 +23,10 @@ public class ParkhausServletDummy {
     }
 
     final protected static Long getTotalCars(final String BODY){
-        return 0L;
+        String[] params = BODY.split(",");
+        String event = params[0];
+        Long totalCars = 0L;
+        return ("leave".equals(event)) ? ++totalCars : totalCars;
     }
 
 }
