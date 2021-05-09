@@ -78,7 +78,7 @@ public class ParkhausServlet extends HttpServlet {
             priceString.append(params[4]);
 
             //parsing String
-            price    = (!(priceString.equals("_"))) ? Double.parseDouble(priceString.toString()) :  price;
+            price = (!(priceString.equals("_"))) ? Double.parseDouble(priceString.toString()) :  price;
 
             //formats the price to xx.yy; e.g. makes 1234 to 12.34,-
             price = (price != null) ? price / 100 : price;
@@ -135,7 +135,7 @@ public class ParkhausServlet extends HttpServlet {
     }
 
 
-    final private static String getBody(HttpServletRequest request) throws IOException{
+    final protected static String getBody(HttpServletRequest request) throws IOException{
         StringBuilder stringBuilder = new StringBuilder();
         BufferedReader bufferedReader = null;
 
