@@ -2,6 +2,7 @@ package com.example.Parkhaus;
 
 public class ParkhausServletDummy {
 
+    //getBill()-Surrogates for getBill()-Method in ParkhausServlet
     final protected static Double getBill(final String BODY){
         String[] params = BODY.split(",");
         StringBuilder priceString = new StringBuilder();
