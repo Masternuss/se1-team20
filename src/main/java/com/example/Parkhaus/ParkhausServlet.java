@@ -135,7 +135,7 @@ public class ParkhausServlet extends HttpServlet {
     }
 
 
-    final protected static String getBody(HttpServletRequest request) throws IOException{
+    final private static String getBody(HttpServletRequest request) throws IOException{
         StringBuilder stringBuilder = new StringBuilder();
         BufferedReader bufferedReader = null;
 
