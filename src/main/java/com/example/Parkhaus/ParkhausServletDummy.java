@@ -12,7 +12,7 @@ public class ParkhausServletDummy {
         if ("leave".equals(event)){
             StringBuilder priceString = new StringBuilder();
             priceString.append(params[4]);
-            price = Double.parseDouble(priceString.toString());
+            price = (!priceString.equals("-")) ? Double.parseDouble(priceString.toString()) : 0L;
             bill = price;
         }
         return bill;
