@@ -41,7 +41,7 @@ public class Parkhaus_UnitTest {
     }
 
     @Test
-    @DisplayName("tests if getTotalCars() count the leaving cars correctly (only increments when cars leaving)")
+    @DisplayName("tests if getTotalCars() counts the leaving cars correctly (only increments when cars leaving)")
     void testGetTotalCars(){
         assertEquals(1l, ParkhausServletDummy.getTotalCars(body1), "damn! something works not like intended - no." + ++counter);
         assertEquals(1l, ParkhausServletDummy.getTotalCars(body2), "damn! something works not like intended - no." + ++counter);
