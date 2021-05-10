@@ -19,7 +19,7 @@ public class ParkhausServletDummy {
         //this method could be a one_liner like the return statement below,
         //but to reflect the steps performed in servlet we did it this way
 
-        //return Double.parseDouble(BODY.split(",")[4]);
+            //return Double.parseDouble(BODY.split(",")[4]);
     }
 
     final protected static Long getTotalCars(final String BODY){
