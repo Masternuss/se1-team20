@@ -16,10 +16,10 @@ public class ParkhausServletDummy {
             bill = price;
         }
         return bill;
-        //this method could be a one_liner like the return statement below,
-        //but to reflect the steps performed in servlet we did it this way
+        //this method could be a one_liner like the return statement below shows,
+        //but to reflect the steps performed in the servlet we did it this way
 
-            //return Double.parseDouble(BODY.split(",")[4]);
+        //return ("leave".equals(BODY.split(",")[0])) ?  Double.parseDouble(BODY.split(",")[4]) : 0;
     }
 
     final protected static Long getTotalCars(final String BODY){
