@@ -160,7 +160,7 @@ public class ParkhausServlet extends HttpServlet {
         return stringBuilder.toString();
     }
 
-    final public void destroy(){/*do nothing*/}
+    final public void destroy(){ System.out.println("Server annihilated"); }
 
 }
 
