@@ -1,5 +1,20 @@
 # Glossar
 ---------------------
+<!DOCTYPE html>
+<html>
+    <head>
+        <h2>Aliases</h2>
+    </head>
+    <body>
+        <h3>Annabella Abshagen Aliases</h3>
+        <ul style="list-style-type: square;">
+            <li>bella</li>
+            <li>1nbetw33n</li>
+    </body>
+</html>
+
+
+
 
 ## Begriffe:
 

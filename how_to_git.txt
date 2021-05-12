@@ -14,13 +14,14 @@ cd into folder
 
 create file
 
-git add file
+git add filename
 
-git commit
+git commit filename
 
 add comment under last #
 
 git push origin main
 
 git pull origin main
+
 
