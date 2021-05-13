@@ -1,0 +1,4 @@
+in terminal:
+    cd into folder (in our case: se1-team20 )
+
+    git shortlog -sn
