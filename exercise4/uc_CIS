@@ -1,0 +1,52 @@
+@startuml
+left to right direction
+package uc_CIS {
+	skinparam packageStyle rectangle
+	agent EasyCard
+	agent HypoBank
+	agent CheckVisa
+	actor user
+	actor memby
+	user <|-- memby
+
+
+	rectangle uc_ConferenceInformationSystem_CIS {
+  	user -- (register)
+  	user -- (log in)
+  	memby -- (book conference)
+  	memby -- (pay conference)
+  	memby -- (define filters for notifications)
+  	(define filters for notifications) <. (future notifications) : extends
+  	(pay with creditcard) "0*" -- "1" EasyCard
+  	(pay with sepa) "0*" -- "1" (HypoBank)
+  	(pay with creditcard) .> (pay conference) : extends
+  	(pay with sepa) .> (pay conference) : extends
+	}
+	@enduml
+
+	@startuml
+	left to right direction
+	skinparam packageStyle rectangle
+	rectangle uc_book_conference {
+	(book national conference)  .> (book conference) : extends
+	(pay conference) <. (book national conference) : include
+
+
+	}
+	@enduml
+
+	@startuml
+	left to right direction
+	skinparam packageStyle rectangle
+	rectangle uc_book_international_conference {
+	(validate visa) "0*" -- "1" CheckVisa
+	(notification) <. (visa not valid) : include
+	(book international conference) .> (book conference) : extends
+	(book international conference) .> (validate visa) : include
+
+	(pay conference) <. (validate visa) : include
+	(validate visa) <. (visa not valid) : extends
+
+	}
+}
+@enduml

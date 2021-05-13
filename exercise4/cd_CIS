@@ -1,0 +1,60 @@
+@startuml
+skinparam classAttributeIconSize 0
+
+package cd_CIS {
+	interface Payment {
+		+payWithCreditcard() : boolean
+		+payWithSEPA() : boolean
+	}
+
+
+	interface VisaCheck {
+		+validateVisa() : boolean
+	}
+
+
+	class Memby {
+		-name: String
+		-password: String
+		#register(t: DateTime): boolean
+		#login(t: DateTime) : boolean
+		#defineFilter() : boolean
+		#notificate(t: Message)
+	}
+
+
+	abstract class Conference {
+		-name: String
+		-flair: String
+		-price: double
+		#payWithCreditCard() : boolean
+		#payWithSEPA() : boolean
+
+	}
+
+
+	class InternationalConference {
+		-validVisa : boolean
+
+		#bookConference() : boolean
+	}
+
+
+	class NationalConference {
+		#bookConference() : boolean
+	}
+
+
+	Memby <<entity>>
+	Conference <<abstract>>
+	VisaCheck <<interface>>
+	Payment <<interface>>
+	VisaCheck  <|.. InternationalConference
+	Payment    <|.. Conference
+	Conference <|-- NationalConference
+	Conference <|-- InternationalConference
+
+	Memby - Conference : books >
+}
+
+@enduml
