@@ -1,4 +1,4 @@
-package testing;
+package exercise2;
 
 public class Time implements TimeIF{
     @Override
